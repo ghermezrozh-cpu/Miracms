@@ -1,6 +1,5 @@
 // studio/schemaTypes/localizedPostType.ts
-import { defineField, defineType } from 'sanity'
-import { localizedString, localizedText, localizedBlockContent } from '../schemas/localizedFields'
+import {defineField, defineType} from 'sanity'
 
 export const localizedPostType = defineType({
   name: 'post',
@@ -10,37 +9,37 @@ export const localizedPostType = defineType({
     {
       name: 'content',
       title: '📝 محتوا و عنوان / Content & Title',
-      options: { 
-        collapsible: true, 
+      options: {
+        collapsible: true,
         collapsed: false,
-        columns: 1 
-      }
+        columns: 1,
+      },
     },
     {
       name: 'metadata',
       title: '🏷️ اطلاعات تکمیلی / Metadata',
-      options: { 
-        collapsible: true, 
+      options: {
+        collapsible: true,
         collapsed: false,
-        columns: 2 
-      }
+        columns: 2,
+      },
     },
     {
       name: 'seo',
       title: '🔍 تنظیمات SEO',
-      options: { 
-        collapsible: true, 
-        collapsed: true 
-      }
+      options: {
+        collapsible: true,
+        collapsed: true,
+      },
     },
     {
       name: 'publishing',
       title: '📅 تنظیمات انتشار / Publishing',
-      options: { 
-        collapsible: true, 
-        collapsed: true 
-      }
-    }
+      options: {
+        collapsible: true,
+        collapsed: true,
+      },
+    },
   ],
   fields: [
     // کد رهگیری در بالا (مهم‌ترین فیلد)
@@ -93,22 +92,22 @@ export const localizedPostType = defineType({
       fields: [
         {
           name: 'fa',
-          title: '🇮🇷 عنوان فارسی',
+          title: 'ꕥ عنوان پارسی',
           type: 'string',
-          validation: (rule) => rule.required().error('عنوان فارسی الزامی است'),
-          placeholder: 'عنوان مقاله را به فارسی وارد کنید...'
+          validation: (rule) => rule.required().error('عنوان پارسی الزامی است'),
+          placeholder: 'عنوان مقاله را به پارسی وارد کنید...',
         },
         {
           name: 'en',
           title: '🇺🇸 عنوان انگلیسی',
           type: 'string',
           validation: (rule) => rule.required().error('English title is required'),
-          placeholder: 'Enter article title in English...'
-        }
+          placeholder: 'Enter article title in English...',
+        },
       ],
       options: {
-        columns: 1 // عنوان‌ها زیر هم برای خوانایی بهتر
-      }
+        columns: 1, // عنوان‌ها زیر هم برای خوانایی بهتر
+      },
     }),
 
     // تصویر شاخص
@@ -120,7 +119,7 @@ export const localizedPostType = defineType({
       description: 'تصویر اصلی مقاله - برای هر دو زبان یکسان',
       options: {
         hotspot: true,
-      }
+      },
     }),
 
     // خلاصه مطلب - ساده
@@ -133,11 +132,11 @@ export const localizedPostType = defineType({
       fields: [
         {
           name: 'fa',
-          title: '🇮🇷 خلاصه فارسی',
+          title: 'ꕥ خلاصه پارسی',
           type: 'text',
           rows: 3,
-          validation: (rule) => rule.required().error('خلاصه فارسی الزامی است'),
-          placeholder: 'خلاصه‌ای از مقاله به فارسی بنویسید...'
+          validation: (rule) => rule.required().error('خلاصه پارسی الزامی است'),
+          placeholder: 'خلاصه‌ای از مقاله به پارسی بنویسید...',
         },
         {
           name: 'en',
@@ -145,12 +144,12 @@ export const localizedPostType = defineType({
           type: 'text',
           rows: 3,
           validation: (rule) => rule.required().error('English summary is required'),
-          placeholder: 'Write a summary of the article in English...'
-        }
+          placeholder: 'Write a summary of the article in English...',
+        },
       ],
       options: {
-        columns: 1
-      }
+        columns: 1,
+      },
     }),
 
     // محتوای اصلی - با UI بهتر
@@ -163,25 +162,19 @@ export const localizedPostType = defineType({
       fields: [
         {
           name: 'fa',
-          title: '🇮🇷 محتوای فارسی',
+          title: 'ꕥ محتوای پارسی',
           type: 'array',
-          of: [
-            { type: 'block' },
-            { type: 'image' }
-          ],
-          validation: (rule) => rule.required().error('محتوای فارسی الزامی است')
+          of: [{type: 'block'}, {type: 'image'}],
+          validation: (rule) => rule.required().error('محتوای پارسی الزامی است'),
         },
         {
           name: 'en',
           title: '🇺🇸 محتوای انگلیسی',
           type: 'array',
-          of: [
-            { type: 'block' },
-            { type: 'image' }
-          ],
-          validation: (rule) => rule.required().error('English content is required')
-        }
-      ]
+          of: [{type: 'block'}, {type: 'image'}],
+          validation: (rule) => rule.required().error('English content is required'),
+        },
+      ],
     }),
 
     // تاریخ انتشار
@@ -217,7 +210,7 @@ export const localizedPostType = defineType({
       title: '📂 دسته‌بندی / Category',
       type: 'reference',
       fieldset: 'metadata',
-      to: [{ type: 'category' }],
+      to: [{type: 'category'}],
       validation: (rule) => rule.required(),
     }),
 
@@ -226,7 +219,7 @@ export const localizedPostType = defineType({
       title: '🌍 منطقه / Region',
       type: 'reference',
       fieldset: 'metadata',
-      to: [{ type: 'region' }],
+      to: [{type: 'region'}],
       validation: (rule) => rule.required(),
     }),
 
@@ -235,7 +228,7 @@ export const localizedPostType = defineType({
       title: '🏷️ موضوع / Topic',
       type: 'reference',
       fieldset: 'metadata',
-      to: [{ type: 'topic' }],
+      to: [{type: 'topic'}],
       validation: (rule) => rule.required(),
     }),
 
@@ -254,8 +247,8 @@ export const localizedPostType = defineType({
       title: '🏷️ برچسب‌ها / Tags',
       type: 'array',
       fieldset: 'metadata',
-      of: [{ type: 'reference', to: [{ type: 'tag' }] }],
-      description: 'برچسب‌های مرتبط با مقاله'
+      of: [{type: 'reference', to: [{type: 'tag'}]}],
+      description: 'برچسب‌های مرتبط با مقاله',
     }),
 
     // نویسنده (ساده‌شده)
@@ -277,17 +270,17 @@ export const localizedPostType = defineType({
           fields: [
             {
               name: 'fa',
-              title: '🇮🇷 نام فارسی',
+              title: 'ꕥ نام پارسی',
               type: 'string',
-              placeholder: 'نام نویسنده به فارسی'
+              placeholder: 'نام نویسنده به پارسی',
             },
             {
               name: 'en',
               title: '🇺🇸 English Name',
               type: 'string',
-              placeholder: 'Author name in English'
-            }
-          ]
+              placeholder: 'Author name in English',
+            },
+          ],
         },
         {
           name: 'bio',
@@ -296,25 +289,25 @@ export const localizedPostType = defineType({
           fields: [
             {
               name: 'fa',
-              title: '🇮🇷 بیوگرافی فارسی',
+              title: 'ꕥ بیوگرافی پارسی',
               type: 'text',
               rows: 2,
-              placeholder: 'بیوگرافی کوتاه به فارسی'
+              placeholder: 'بیوگرافی کوتاه به پارسی',
             },
             {
               name: 'en',
               title: '🇺🇸 English Bio',
               type: 'text',
               rows: 2,
-              placeholder: 'Short bio in English'
-            }
-          ]
+              placeholder: 'Short bio in English',
+            },
+          ],
         },
         {
           name: 'avatar',
           title: 'تصویر نویسنده / Avatar',
           type: 'image',
-          options: { hotspot: true },
+          options: {hotspot: true},
         },
       ],
     }),
@@ -335,19 +328,19 @@ export const localizedPostType = defineType({
           fields: [
             {
               name: 'fa',
-              title: '🇮🇷 عنوان SEO فارسی',
+              title: 'ꕥ عنوان SEO پارسی',
               type: 'string',
               validation: (rule) => rule.max(60).warning('بهتر است کمتر از 60 کاراکتر باشد'),
-              placeholder: 'عنوان برای گوگل فارسی...'
+              placeholder: 'عنوان برای گوگل پارسی...',
             },
             {
               name: 'en',
               title: '🇺🇸 English SEO Title',
               type: 'string',
               validation: (rule) => rule.max(60).warning('Should be less than 60 characters'),
-              placeholder: 'Title for Google English...'
-            }
-          ]
+              placeholder: 'Title for Google English...',
+            },
+          ],
         },
         {
           name: 'metaDescription',
@@ -357,11 +350,11 @@ export const localizedPostType = defineType({
           fields: [
             {
               name: 'fa',
-              title: '🇮🇷 توضیحات SEO فارسی',
+              title: 'ꕥ توضیحات SEO پارسی',
               type: 'text',
               rows: 2,
               validation: (rule) => rule.max(160).warning('بهتر است کمتر از 160 کاراکتر باشد'),
-              placeholder: 'توضیحات برای گوگل فارسی...'
+              placeholder: 'توضیحات برای گوگل پارسی...',
             },
             {
               name: 'en',
@@ -369,9 +362,9 @@ export const localizedPostType = defineType({
               type: 'text',
               rows: 2,
               validation: (rule) => rule.max(160).warning('Should be less than 160 characters'),
-              placeholder: 'Description for Google English...'
-            }
-          ]
+              placeholder: 'Description for Google English...',
+            },
+          ],
         },
         {
           name: 'ogImage',
@@ -402,7 +395,7 @@ export const localizedPostType = defineType({
       expireAt: 'expireAt',
       media: 'image',
     },
-    prepare({ titleFa, titleEn, important, category, region, topic, trackingId, expireAt, media }) {
+    prepare({titleFa, titleEn, important, category, region, topic, trackingId, expireAt, media}) {
       const title = titleFa || titleEn || 'بدون عنوان'
       const subtitle = [
         trackingId && `🔍 ${trackingId}`,
@@ -411,7 +404,7 @@ export const localizedPostType = defineType({
         region && `🌍 ${region}`,
         topic && `🏷️ ${topic}`,
         expireAt && `⏳ انقضا`,
-        titleFa && titleEn && '🌐 دوزبانه'
+        titleFa && titleEn && '🌐 دوزبانه',
       ]
         .filter(Boolean)
         .join(' • ')
