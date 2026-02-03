@@ -1,5 +1,5 @@
 // studio/schemas/localizedFields.ts
-// تعریف فیلدهای دوزبانه برای Sanity Studio
+// تعریف فیلدهای دوزبانه برای Sanity Studio 2
 
 import {defineField} from 'sanity'
 
